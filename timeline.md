@@ -1,4 +1,41 @@
-## 1110
+## 1111
+
+1. pydantic_settings  
+   - src/config.py defines settings as typed classes  
+   - Ensures type safety and easy environment variable loading  
+
+2. backend solution  
+   - Lambda: minimal setup, zero server maintenance, event-driven, good for low traffic, less flexible  
+   - FastAPI: more flexible, better for continuous traffic or complex APIs  
+
+3. Hugging Face model (BAAI/bge-base-en-v1.5)  
+   - Token setup for fast embeddings  
+   - Powers both dense and sparse embeddings in Qdrant for indexing and querying Substack articles  
+
+4. Jina  
+   - Local FastEmbed model (BAAI/bge-base-en)  
+   - Configure Jina only if using its embedding API instead of FastEmbed  
+
+5. Opik  
+   - Open-source LLM evaluation framework  
+
+6. Security  
+   - ALLOWED_ORIGINS controls CORS in src/api/main.py  
+   - CORS defines which browser clients can access the API  
+
+7. Mark  
+   - Ensure all cloud and local environments are configured to run the project  
+
+8. AI resources  
+   - Paul Iusztin  
+     - https://substack.com/@pauliusztin  
+     - https://www.decodingai.com/  
+   - Maxime Labonne  
+     - https://mlabonne.github.io/blog/  
+     - https://maximelabonne.substack.com/  
+   - Podcast: The Data Entrepreneurs  
+     - https://www.themasters.ai/episodes  
+
 ## 1110
 
 1. Virtual Environment  
@@ -54,3 +91,4 @@
 6. Prefect (Orchestration Tool)  
   - Local use: small teams  
   - Cloud use: large teams, scalable data ingestion.
+  Airflow in the corporation sss
