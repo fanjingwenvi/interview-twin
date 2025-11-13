@@ -1,3 +1,53 @@
+## 1113
+
+LLM Engineer's Zoomcap  
+https://github.com/immeritos/adhd-therapy-chatbot/blob/main/app/assistant.py
+
+1. Embedding  
+   - Generates vector representations of text for retrieval  
+
+2. Retrieval  
+   - Queries Qdrant collection twice:  
+     - Dense retrieval: uses embedding vectors  
+     - Sparse retrieval: uses BM25 keyword matching  
+   - Limit results multiplied by 5  
+   - Uses Reciprocal Rank Fusion (RRF) to combine results  
+
+3. BM25  
+   - Scores document relevance based on:  
+     - Term frequency (TF): more matches increase score  
+     - Inverse document frequency (IDF): rarer terms weigh more  
+     - Document length normalization: favors shorter documents  
+   - Implemented in Qdrant  
+   - Common in search engines like Elasticsearch  
+
+4. Prompting  
+   - Example template for ADHD psychologist responses:  
+     ```
+     You are a psychologist specialized in ADHD.
+     Answer the QUESTION based on the CONTEXT from the reference database.
+     Use only the facts from the CONTEXT when answering the QUESTION.
+
+     QUESTION: {question}
+
+     CONTEXT:
+     {context}
+     ``` 
+
+6. Model Choice 
+   - OPENAI_MODELS = ["openai/gpt-4o-mini", "openai/gpt-4o", "openai/gpt-3.5-turbo"]  
+
+7. LLM Eval  
+   - Generation: LLM acts as a judge  
+   - Retrieval: evaluate accuracy, precision, F1  
+
+8. Monitoring  
+   - Track OpenAI usage and calculate costs  
+
+9. Comparing to the production version  
+   - OOP vs POP 
+   - continuous improvements in all aspects  
+
 ## 1111
 
 1. pydantic_settings  
