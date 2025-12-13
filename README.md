@@ -1,6 +1,6 @@
 # Interview Twin
 
-## Project Architect
+## Architecture Diagram
 
 ## Features
 Personal helper for interview preparation and access point for interviewers 
