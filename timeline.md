@@ -11,7 +11,7 @@ https://github.com/immeritos/adhd-therapy-chatbot/blob/main/app/assistant.py
      - Dense retrieval: uses embedding vectors  
      - Sparse retrieval: uses BM25 keyword matching  
    - Limit results multiplied by 5  
-   - Uses Reciprocal Rank Fusion (RRF) to combine results  
+   - Uses Reciprocal Rank Fusion (RRF) to combine results
 
 3. BM25  
    - Scores document relevance based on:  
@@ -56,15 +56,18 @@ https://github.com/immeritos/adhd-therapy-chatbot/blob/main/app/assistant.py
 
 2. backend solution  
    - Lambda: minimal setup, zero server maintenance, event-driven, good for low traffic, less flexible  
-   - FastAPI: more flexible, better for continuous traffic or complex APIs  
+   - FastAPI: more flexible, better for continuous traffic or complex APIs
+     
+3. Dense embedding model
+   Hugging Face model (BAAI/bge-base-en-v1.5)
+   Local FastEmbed model (BAAI/bge-base-en)
+   Cloud Jina API
 
-3. Hugging Face model (BAAI/bge-base-en-v1.5)  
-   - Token setup for fast embeddings  
-   - Powers both dense and sparse embeddings in Qdrant for indexing and querying Substack articles  
+4. Sparse embedding generator
+   BM25-style
 
-4. Jina  
-   - Local FastEmbed model (BAAI/bge-base-en)  
-   - Configure Jina only if using its embedding API instead of FastEmbed  
+5.Qdrant
+   Powers both dense and sparse embeddings in Qdrant for indexing and querying Substack articles 
 
 5. Opik  
    - Open-source LLM evaluation framework  
